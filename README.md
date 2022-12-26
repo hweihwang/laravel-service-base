@@ -1,16 +1,43 @@
-# Laravel service base
+Laravel Service Base
+====================
 
-Good start for your monolith which is ready for microservices.
+A base setup for use in Laravel applications, designed to facilitate clean architecture, CQRS, and DDD. This
+repository is intended as a starting point for building scalable, modular, and framework independent project which is
+ready to microservice. Utilizing technologies such as Docker, Laravel, Octane, Elasticsearch, and MariaDB.
 
-## Description
+Installation
+------------
 
-Hope it gives you some ideas how to modularize your project. Modular, scalable, and framework independent. Facilitates
-clean architecture, CQRS, DDD. MariaDB for write-side and Elasticsearch for read-side.
+To run this repo, follow these steps:
 
-## Used technologies
+1. Clone the repository:
 
-* [Docker](https://www.docker.com/)
-* [Laravel](https://laravel.com/)
-* [Octane](https://laravel.com/docs/9.x/octane/)
-* [Elasticsearch](https://www.elastic.co/)
-* [MariaDB](https://mariadb.org/)
+`git clone https://github.com/hweihwang/laravel-service-base.git`
+
+2. Navigate to the project directory:
+
+`cd laravel-service-base`
+
+3. Make the `make.sh` script executable:
+
+`chmod +x ./make.sh`
+
+4. Run the script:
+
+`./make.sh`
+
+5. Your application should now be running at `http://localhost:19000`
+
+Prerequisites
+-------------
+
+Before running this repo, ensure that you have Docker installed on your system.
+
+Technologies Used
+-----------------
+
+- Docker
+- Laravel
+- Laravel Octane
+- Elasticsearch
+- MariaDB

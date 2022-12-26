@@ -12,19 +12,6 @@ final class ProductListingViewModel extends AbstractViewModel
 
     public string $frontDisplay;
 
-    public int $readyToSellQuantity;
-
-    public int $incomingQuantity;
-
-    public ?int $lastSoldAt;
-
-    public int $soldInLast7DaysQuantity;
-
-    /**
-     * @var array<ProductDetailSkuViewModel>
-     */
-    public array $skus;
-
     public function toArray(): array
     {
         return get_object_vars($this);

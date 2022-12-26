@@ -16,7 +16,6 @@ use Modules\Product\Enums\FrontDisplay;
  * @property int $brand_id
  * @property string|null $short_description
  * @property FrontDisplay $front_display
- * @property array $variant_settings
  * @property bool $is_predicted
  * @property ?array $images
  * @property ?array $videos
@@ -26,12 +25,10 @@ use Modules\Product\Enums\FrontDisplay;
  *
  * Relations
  * @property Collection $tags
- * @property Collection $tenancies
  */
 final class Product extends Model
 {
     protected $casts = [
-        'variant_settings' => 'array',
         'front_display' => FrontDisplay::class,
         'images' => 'array',
         'videos' => 'array',

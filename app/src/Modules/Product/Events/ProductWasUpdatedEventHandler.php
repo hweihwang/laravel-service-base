@@ -17,8 +17,5 @@ final class ProductWasUpdatedEventHandler
         if (! $command->tags instanceof WillNotUpdate) {
             $eventBus->publish(new ProductTagsNeedToBeSyncedEvent($product, $command->tags));
         }
-        if (! $command->frontSites instanceof WillNotUpdate) {
-            $eventBus->publish(new ProductTenanciesNeedToBeSyncedEvent($product, $command->frontSites));
-        }
     }
 }

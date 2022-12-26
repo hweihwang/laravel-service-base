@@ -82,10 +82,6 @@ final  class SyncDataFromMySqlToElasticsearchManager
     
     private function delete(array $toDelete): void
     {
-        $service = new ProductOptionDeleteService($this->repository);
-        
-        $dto = new ProductOptionDataDeleteDTO($toDelete);
-        
-        $service->execute($dto);
+        $this->repository->bulkDestroy($this->repository->getByIds($toDelete));
     }
 }

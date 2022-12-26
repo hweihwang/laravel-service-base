@@ -18,11 +18,7 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->routes(function () {
             Route::namespace('')
-                ->group(base_path('frameworks/Laravel/Routes/Modules/Nicespace.php'));
-            Route::namespace('')
-                ->group(base_path('frameworks/Laravel/Routes/Modules/Product.php'));
-            Route::namespace('')
-                ->group(base_path('frameworks/Laravel/Routes/Modules/Monolith.php'));
+                ->group(base_path('src/Frameworks/Laravel/Routes/Modules/Product.php'));
         });
     }
 

@@ -3,8 +3,6 @@
 namespace Modules\Product\Transports\API\ViewModels;
 
 use Modules\Common\Transports\API\ViewModel\AbstractViewModel;
-use Modules\Product\Enums\TenancyApp;
-
 final class ProductDetailViewModel extends AbstractViewModel
 {
     public int $productId;
@@ -30,9 +28,6 @@ final class ProductDetailViewModel extends AbstractViewModel
     public ?string $youtubeVideo;
 
     public array $tags;
-
-    /** @var array<TenancyApp> */
-    public array $frontSites;
 
     public function toArray(): array
     {

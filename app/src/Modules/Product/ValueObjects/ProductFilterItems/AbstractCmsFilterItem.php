@@ -2,7 +2,7 @@
 
 namespace Modules\Product\ValueObjects\ProductFilterItems;
 
-use Applications\Nicespace\Common\DTOs\FilterItems\QueryValueProcessor\QueryValueProcessorInterface;
+use Modules\Product\ValueObjects\ProductFilterItems\QueryValueProcessor\QueryValueProcessorInterface;
 use RuntimeException;
 
 abstract class AbstractCmsFilterItem implements ElasticFilterItemInterface

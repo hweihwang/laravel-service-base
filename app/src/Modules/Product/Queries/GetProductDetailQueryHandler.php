@@ -34,13 +34,10 @@ final class GetProductDetailQueryHandler extends AbstractValueObject
         $viewModel->brandId = $product->brand_id;
         $viewModel->variantSettings = $product->variant_settings ?? [];
         $viewModel->isPredicted = $product->is_predicted;
-        
         $viewModel->images = $product->images ?? [];
-        
         $viewModel->images = array_map(static function (string $image) {
             return (new ImageUrlHandler())($image);
         }, $viewModel->images);
-        
         $viewModel->videos = $product->videos ?? [];
         $viewModel->youtubeVideo = $product->youtube_video ?? null;
         $viewModel->tags = $product->tags->pluck('id')->all();

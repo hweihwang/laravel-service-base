@@ -31,7 +31,6 @@ final class CreateProductCommandHandler
         $static->youtube_video = $command->youtubeVideo;
         $static->front_display = $command->frontDisplay;
         $static->is_predicted = $command->isPredicted;
-        $static->variant_settings = $command->variantSettings->serialize();
         $shared_url = Str::slug($static->name);
         $static->shared_url = $shared_url;
 

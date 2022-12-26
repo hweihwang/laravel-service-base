@@ -13,6 +13,5 @@ final class ProductWasCreatedEventHandler
         $product = $event->product;
         
         $eventBus->publish(new ProductTagsNeedToBeSyncedEvent($product, $event->command->tags));
-        $eventBus->publish(new ProductTenanciesNeedToBeSyncedEvent($product, $event->command->frontSites));
     }
 }
