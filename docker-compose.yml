@@ -1,0 +1,60 @@
+version: "3"
+
+services:
+  php:
+    build:
+      context: .
+      dockerfile: ./docker/php/Dockerfile
+    container_name: php_${APP_NAME}
+    volumes:
+      - ./app/:/var/www/html/
+    ports:
+      - "${PHP_PORT}:9000"
+    networks:
+      - dev
+
+  elasticsearch:
+    image: elasticsearch:${ELASTIC_VERSION}
+    container_name: elasticsearch_${APP_NAME}
+    restart: unless-stopped
+    tty: true
+    environment:
+      - cluster.name=docker-cluster
+      - network.host=0.0.0.0
+      - xpack.security.enabled=false
+      - xpack.security.transport.ssl.enabled=false
+      - xpack.security.http.ssl.enabled=false
+      - discovery.type=single-node
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - bootstrap.memory_lock=true
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - ./docker/elasticsearch/data:/usr/share/elasticsearch/data
+    ports:
+      - "${ELASTICSEARCH_PORT}:9200"
+    networks:
+      - dev
+
+  mariadb:
+    image: mariadb:latest
+    container_name: mariadb_${APP_NAME}
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "${MARIADB_PORT}:3306"
+    volumes:
+      - ./docker/mariadb/my.cnf:/etc/mysql/my.cnf
+      - ./docker/mariadb/data:/var/lib/mysql
+      - ./docker/mariadb/init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    networks:
+      - dev
+
+networks:
+  dev:
+    driver: bridge
+    external: true

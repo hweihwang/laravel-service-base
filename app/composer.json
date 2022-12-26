@@ -1,0 +1,81 @@
+{
+    "name": "hweihwang/laravel-serive-base",
+    "type": "project",
+    "description": "Laravel Service Base",
+    "keywords": ["laravel", "service", "cqrs", "ddd"],
+    "authors": [
+        {
+            "name": "Hoang Pham",
+            "email": "hoangmaths96@gmail.com"
+        }
+    ],
+    "license": "MIT",
+    "require": {
+        "php": "^8.2",
+        "ext-pdo": "*",
+        "doctrine/dbal": "^3.5",
+        "ecotone/laravel": "^1.55",
+        "guzzlehttp/guzzle": "^7.5.0",
+        "hweihwang/elasticsearch-scout-driver": "dev-master",
+        "laravel/framework": "^9.37",
+        "laravel/octane": "^1.3.5",
+        "laravel/scout": "^9.4.12",
+        "laravel/telescope": "^4.10",
+        "php-open-source-saver/jwt-auth": "^2.0",
+        "webmozart/assert": "^1.11"
+    },
+    "require-dev": {
+        "fakerphp/faker": "^1.20.0",
+        "laravel/pint": "^0.2.4",
+        "mockery/mockery": "^1.5.1",
+        "nunomaduro/collision": "^6.3.1",
+        "nunomaduro/phpinsights": "^2.6.1",
+        "pestphp/pest": "^1.22.1",
+        "pestphp/pest-plugin-laravel": "^1.3.0",
+        "phpunit/phpunit": "^9.5.26",
+        "roave/security-advisories": "dev-latest"
+    },
+    "autoload": {
+        "psr-4": {
+            "Frameworks\\": "src/Frameworks/",
+            "Modules\\": "src/Modules/",
+            "Database\\Seeders\\": "src/Frameworks/Laravel/Database/Seeders/"
+        }
+    },
+    "autoload-dev": {
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi"
+        ],
+        "post-update-cmd": [
+            "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
+        ],
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php artisan key:generate --ansi"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": [
+                "laravel/telescope"
+            ]
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "phpstan/extension-installer": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
