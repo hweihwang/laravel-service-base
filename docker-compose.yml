@@ -48,7 +48,6 @@ services:
     volumes:
       - ./docker/mariadb/my.cnf:/etc/mysql/my.cnf
       - ./docker/mariadb/data:/var/lib/mysql
-      - ./docker/mariadb/init.sql:/docker-entrypoint-initdb.d/init.sql
     environment:
       MYSQL_ROOT_PASSWORD: root
     networks:

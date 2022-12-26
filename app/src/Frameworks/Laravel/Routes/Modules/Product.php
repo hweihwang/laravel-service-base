@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Modules\Product\Transports\API\Controllers\ProductController;
 
 $prefix = 'products/api/v1';
-$middlewares = ['api', 'auth:api'];
+$middlewares = ['api'];
 
 Route::group(['prefix' => $prefix, 'middleware' => $middlewares],
     static function () {
