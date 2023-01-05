@@ -1,4 +1,4 @@
-version: "3"
+version: "3.8"
 
 services:
   php:
@@ -41,6 +41,7 @@ services:
   mariadb:
     image: mariadb:latest
     container_name: mariadb_${APP_NAME}
+    command: --init-file /tmp/init.sql
     restart: unless-stopped
     tty: true
     ports:
@@ -48,6 +49,7 @@ services:
     volumes:
       - ./docker/mariadb/my.cnf:/etc/mysql/my.cnf
       - ./docker/mariadb/data:/var/lib/mysql
+      - ./docker/mariadb/init.sql:/tmp/init.sql
     environment:
       MYSQL_ROOT_PASSWORD: root
     networks:

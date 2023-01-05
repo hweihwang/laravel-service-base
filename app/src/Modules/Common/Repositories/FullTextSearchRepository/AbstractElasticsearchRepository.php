@@ -56,12 +56,11 @@ abstract class AbstractElasticsearchRepository implements FullTextSearchReposito
 
     public function filter(
         ?FilterInterface $filters = null,
-        string           $orderBy = 'id',
-        string           $direction = 'desc',
-        array            $columns = ['*'],
-        string           $search = ''
-    ): Collection
-    {
+        string $orderBy = 'id',
+        string $direction = 'desc',
+        array $columns = ['*'],
+        string $search = ''
+    ): Collection {
         $builder = $this->model::search($search);
 
         if ($filters instanceof AbstractElasticSearchFilter) {
@@ -73,7 +72,7 @@ abstract class AbstractElasticsearchRepository implements FullTextSearchReposito
             ->take(self::MAX_LIMIT)
             ->getData($columns);
     }
-    
+
     public function countAll(): int
     {
         return $this->model::search()->raw()->count();
@@ -123,7 +122,7 @@ abstract class AbstractElasticsearchRepository implements FullTextSearchReposito
 
         return $builder->paginateData($perPage, $pageName, $page);
     }
-    
+
     public function add(StateGettableInterface $model): void
     {
         $model->searchable();
@@ -134,16 +133,16 @@ abstract class AbstractElasticsearchRepository implements FullTextSearchReposito
         $models = $this->model->newCollection($models);
         $models->searchable();
     }
-    
+
     public function destroy(StateGettableInterface $model): void
     {
         $model->unsearchable();
     }
-    
+
     public function bulkDestroy(Collection $models): void
     {
         $models = $this->model->newCollection($models);
-    
+
         $models->unsearchable();
     }
 }

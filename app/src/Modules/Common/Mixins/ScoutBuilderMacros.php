@@ -12,7 +12,6 @@ use Illuminate\Pagination\Paginator;
 use JeroenG\Explorer\Application\Results;
 use JeroenG\Explorer\Domain\Syntax\Terms;
 use JeroenG\Explorer\Infrastructure\Scout\ElasticEngine;
-use Laravel\Scout\Builder;
 use Modules\Common\Exceptions\DefaultException;
 use Modules\Common\Filters\AbstractElasticSearchFilter;
 use Modules\Common\ValueObjects\AbstractValueObject;
@@ -41,7 +40,7 @@ use Modules\Common\ValueObjects\AbstractValueObject;
     {
         return function (int $perPage = 10, string $pageName = 'page', int $page = 1) {
             $page = $page ?: Paginator::resolveCurrentPage($pageName);
-    
+
             $results = $this->engine()->paginate($this, $perPage, $page);
 
             return Container::getInstance()->makeWith(LengthAwarePaginator::class, [

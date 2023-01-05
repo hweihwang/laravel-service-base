@@ -8,8 +8,8 @@ RUN apk add --no-cache \
     php81-dev npm \
     g++ make \
     bash nano \
-    && pecl install swoole-5.0.1 \
-    && docker-php-ext-enable swoole \
+    && pecl install openswoole-22.0.0 \
+    && docker-php-ext-enable openswoole \
     && docker-php-ext-install pdo pdo_mysql \
     && apk del g++ make \
     && rm -rf /tmp/*

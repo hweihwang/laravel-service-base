@@ -29,7 +29,7 @@ return [
     |
     */
 
-    'path' => env('TELESCOPE_PATH', 'e6d71241-49f3-4c9a-b6f8-f884ac27240f'),
+    'path' => env('TELESCOPE_PATH', 'monitoring'),
 
     /*
     |--------------------------------------------------------------------------
@@ -46,7 +46,7 @@ return [
 
     'storage' => [
         'database' => [
-            'connection' => env('TELESCOPE_DB_CONNECTION', 'catalog_mysql'),
+            'connection' => env('TELESCOPE_DB_CONNECTION', 'mysql'),
             'chunk' => 1000,
         ],
     ],
@@ -92,7 +92,9 @@ return [
     */
 
     'only_paths' => [
-        'cms*',
+        'api/*',
+        'web/*',
+        'console/*',
     ],
 
     'ignore_paths' => [

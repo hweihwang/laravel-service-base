@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Frameworks\Laravel\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Laravel\Telescope\Telescope;
 use Modules\Common\Cache\CacheKey\CacheKeyBuilder;
 use Modules\Common\Cache\CacheKey\CacheKeyBuilderInterface;
 use Modules\Common\Cache\CacheProvider;
@@ -35,8 +34,6 @@ final class AppServiceProvider extends ServiceProvider
             $this->app->register(\Laravel\Telescope\TelescopeServiceProvider::class);
             $this->app->register(TelescopeServiceProvider::class);
         }
-
-        Telescope::ignoreMigrations();
 
         $this->app->register(ModuleServiceProvider::class);
 

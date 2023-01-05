@@ -1,6 +1,6 @@
 #!/bin/sh
 
-composer install -o --no-interaction
+composer update -o --no-interaction
 
 mkdir -p storage/framework/sessions storage/framework/views storage/framework/cache storage/logs bootstrap/cache
 

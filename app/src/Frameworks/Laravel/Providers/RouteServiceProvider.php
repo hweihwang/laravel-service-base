@@ -17,8 +17,8 @@ class RouteServiceProvider extends ServiceProvider
         $this->configureRateLimiting();
 
         $this->routes(function () {
-            Route::namespace('')
-                ->group(base_path('src/Frameworks/Laravel/Routes/Modules/Product.php'));
+            //Route::namespace('')
+            //    ->group(base_path('src/Frameworks/Laravel/Routes/Modules/Product.php'));
         });
     }
 

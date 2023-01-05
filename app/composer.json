@@ -11,7 +11,7 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^8.2",
+        "php": "^8.2.1",
         "ext-pdo": "*",
         "doctrine/dbal": "^3.5",
         "ecotone/laravel": "^1.55",
