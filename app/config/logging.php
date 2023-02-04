@@ -5,7 +5,6 @@ use Monolog\Handler\StreamHandler;
 use Monolog\Handler\SyslogUdpHandler;
 
 return [
-
     'default' => env('LOG_CHANNEL', 'stack'),
 
     'deprecations' => [
@@ -81,5 +80,4 @@ return [
             'path' => storage_path('logs/Laravel.log'),
         ],
     ],
-
 ];

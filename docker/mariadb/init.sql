@@ -1,1 +1,1 @@
-CREATE DATABASE IF NOT EXISTS `laratall` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE DATABASE IF NOT EXISTS `laravel_service_base` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;

@@ -43,13 +43,13 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-
-        \Frameworks\Laravel\Providers\AppServiceProvider::class,
-        \Frameworks\Laravel\Providers\AuthServiceProvider::class,
+        
+        Frameworks\Laravel\Providers\AppServiceProvider::class,
+        Frameworks\Laravel\Providers\AuthServiceProvider::class,
         // Providers\BroadcastServiceProvider::class,
-        \Frameworks\Laravel\Providers\EventServiceProvider::class,
-        \Frameworks\Laravel\Providers\RouteServiceProvider::class,
-        \Frameworks\Laravel\Providers\ScoutServiceProvider::class,
+        Frameworks\Laravel\Providers\EventServiceProvider::class,
+        Frameworks\Laravel\Providers\RouteServiceProvider::class,
+        Frameworks\Laravel\Providers\ScoutServiceProvider::class,
     ],
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => Modules\Example\ExampleClass::class,
