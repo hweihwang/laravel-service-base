@@ -8,9 +8,7 @@ use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvi
 
 final class EventServiceProvider extends ServiceProvider
 {
-    protected $listen = [
-
-    ];
+    protected $listen = [];
 
     public function boot(): void
     {

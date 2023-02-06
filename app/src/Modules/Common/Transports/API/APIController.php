@@ -7,7 +7,7 @@ namespace Modules\Common\Transports\API;
 use Illuminate\Routing\Controller;
 use Modules\Common\Transports\API\Concerns\APIFoundationTrait;
 
-class APIController extends Controller
+abstract class APIController extends Controller
 {
     use APIFoundationTrait;
 }

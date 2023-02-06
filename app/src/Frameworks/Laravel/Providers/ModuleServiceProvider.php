@@ -6,7 +6,7 @@ namespace Frameworks\Laravel\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-class ModuleServiceProvider extends ServiceProvider
+final class ModuleServiceProvider extends ServiceProvider
 {
     private array $modules = [];
 

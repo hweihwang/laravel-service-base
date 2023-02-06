@@ -4,9 +4,9 @@ namespace Frameworks\Laravel\Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+final class DatabaseSeeder extends Seeder
 {
-    public function run()
+    public function run(): void
     {
         // \Modules\Modules\User::factory(10)->create();
     }

@@ -29,7 +29,7 @@ use Modules\Common\ValueObjects\AbstractValueObject;
  * The data return by the engine is an array and then mapped back to Eloquent model by querying the DB.
  * We manually map the array data to SearchableModel here. Using AutoMapper most of the time to get rid of boilerplate.
  */
-#[AllowDynamicProperties] class ScoutBuilderMacros implements ScoutBuilderMacrosInterface
+#[AllowDynamicProperties] final class ScoutBuilderMacros implements ScoutBuilderMacrosInterface
 {
     public function getData(): Closure
     {

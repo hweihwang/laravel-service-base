@@ -8,7 +8,7 @@ use Frameworks\Laravel\Commands\InitElasticsearchIndicesCommand;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel;
 
-class ConsoleKernel extends Kernel
+final class ConsoleKernel extends Kernel
 {
     protected $commands = [
         InitElasticsearchIndicesCommand::class,

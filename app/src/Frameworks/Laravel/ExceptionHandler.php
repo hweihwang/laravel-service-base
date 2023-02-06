@@ -19,7 +19,7 @@ use Symfony\Component\Routing\Exception\RouteNotFoundException;
 use Throwable;
 use Webmozart\Assert\InvalidArgumentException as AssertException;
 
-class ExceptionHandler extends Handler
+final class ExceptionHandler extends Handler
 {
     use APIFoundationTrait;
 
