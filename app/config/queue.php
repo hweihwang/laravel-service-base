@@ -2,12 +2,12 @@
 
 return [
     'default' => env('QUEUE_CONNECTION', 'sync'),
-    
+
     'connections' => [
         'sync' => [
             'driver' => 'sync',
         ],
-        
+
         'database' => [
             'driver' => 'database',
             'table' => 'jobs',
@@ -15,7 +15,7 @@ return [
             'retry_after' => 90,
             'after_commit' => false,
         ],
-        
+
         'beanstalkd' => [
             'driver' => 'beanstalkd',
             'host' => 'localhost',
@@ -24,7 +24,7 @@ return [
             'block_for' => 0,
             'after_commit' => false,
         ],
-        
+
         'sqs' => [
             'driver' => 'sqs',
             'key' => env('AWS_ACCESS_KEY_ID'),
@@ -35,7 +35,7 @@ return [
             'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
             'after_commit' => false,
         ],
-        
+
         'redis' => [
             'driver' => 'redis',
             'connection' => 'default',
@@ -44,12 +44,12 @@ return [
             'block_for' => null,
             'after_commit' => false,
         ],
-        
+
         'rabbitmq' => [
             'driver' => 'rabbitmq',
             'queue' => env('RABBITMQ_QUEUE', 'default'),
             'connection' => PhpAmqpLib\Connection\AMQPLazyConnection::class,
-            
+
             'hosts' => [
                 [
                     'host' => env('RABBITEVENTS_HOST', '127.0.0.1'),
@@ -59,7 +59,7 @@ return [
                     'vhost' => env('RABBITEVENTS_VHOST', '/'),
                 ],
             ],
-            
+
             'options' => [
                 'ssl_options' => [
                     'cafile' => env('RABBITMQ_SSL_CAFILE', null),
@@ -72,15 +72,15 @@ return [
                     'job' => VladimirYuldashev\LaravelQueueRabbitMQ\Queue\Jobs\RabbitMQJob::class,
                 ],
             ],
-            
+
             /*
              * Set to "horizon" if you wish to use Laravel Horizon.
              */
             'worker' => env('RABBITMQ_WORKER', 'default'),
-        
+
         ],
     ],
-    
+
     'failed' => [
         'driver' => env('QUEUE_FAILED_DRIVER', 'database-uuids'),
         'database' => env('DB_CONNECTION', 'mysql'),

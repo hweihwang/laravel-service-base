@@ -13,6 +13,15 @@ services:
     networks:
       - dev
 
+  test-runner:
+    image: php:8.2.2-cli-alpine3.17
+    container_name: test-runner_${APP_NAME}
+    working_dir: /var/www/html
+    volumes:
+      - ./app/:/var/www/html/
+    networks:
+      - dev
+
   elasticsearch:
     image: elasticsearch:${ELASTIC_VERSION}
     container_name: elasticsearch_${APP_NAME}

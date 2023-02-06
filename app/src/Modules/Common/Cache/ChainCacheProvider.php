@@ -16,7 +16,7 @@ final class ChainCacheProvider implements CacheProviderInterface
         $this->providers = $providers;
     }
 
-    public function remember(string $key, callable $callback, int $minutes = 5)
+    public function remember(string $key, callable $callback, float $minutes = 5)
     {
         foreach ($this->providers as $provider) {
             try {

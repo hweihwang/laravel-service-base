@@ -6,7 +6,7 @@ return [
     'prefix' => env('SCOUT_PREFIX', ''),
 
     'queue' => false,
-    
+
     'after_commit' => false,
 
     'chunk' => [
@@ -15,7 +15,7 @@ return [
     ],
 
     'soft_delete' => false,
-    
+
     'identify' => env('SCOUT_IDENTIFY', false),
 
     'algolia' => [

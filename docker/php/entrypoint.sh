@@ -14,8 +14,6 @@ php artisan octane:install --server=swoole
 
 npm install
 
-php artisan telescope:install
-
 php artisan migrate
 
 php artisan optimize

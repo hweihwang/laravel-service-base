@@ -43,7 +43,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-        
+
         Frameworks\Laravel\Providers\AppServiceProvider::class,
         Frameworks\Laravel\Providers\AuthServiceProvider::class,
         // Providers\BroadcastServiceProvider::class,

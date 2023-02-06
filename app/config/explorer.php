@@ -15,8 +15,8 @@ return [
     ],
 
     'ssl_verification' => env('ELASTIC_SSL_VERIFICATION', false),
-    
+
     'indexes' => [],
-    
+
     'prune_old_aliases' => true,
 ];

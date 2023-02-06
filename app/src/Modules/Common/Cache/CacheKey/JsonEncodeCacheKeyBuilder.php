@@ -6,7 +6,7 @@ namespace Modules\Common\Cache\CacheKey;
 
 use JsonException;
 
-final class CacheKeyBuilder implements CacheKeyBuilderInterface
+final class JsonEncodeCacheKeyBuilder implements CacheKeyBuilderInterface
 {
     /**
      * @throws JsonException

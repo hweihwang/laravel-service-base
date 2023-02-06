@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Frameworks\Laravel\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Modules\Common\Cache\CacheKey\CacheKeyBuilder;
 use Modules\Common\Cache\CacheKey\CacheKeyBuilderInterface;
+use Modules\Common\Cache\CacheKey\JsonEncodeCacheKeyBuilder;
 use Modules\Common\Cache\CacheProvider;
 use Modules\Common\Cache\CacheProviderInterface;
 use Modules\Common\Cache\ChainCacheProvider;
@@ -52,7 +52,7 @@ final class AppServiceProvider extends ServiceProvider
             new NullCacheProvider(),
         ]));
 
-        $this->app->singleton(CacheKeyBuilderInterface::class, CacheKeyBuilder::class);
+        $this->app->singleton(CacheKeyBuilderInterface::class, JsonEncodeCacheKeyBuilder::class);
 
         $this->app->singleton(CacheProviderInterface::class, ChainCacheProvider::class);
 

@@ -20,7 +20,7 @@ return [
         'passphrase' => env('JWT_PASSPHRASE'),
 
     ],
-    
+
     'ttl' => env('JWT_TTL', 10080),
 
     'refresh_ttl' => env('JWT_REFRESH_TTL', 20160),
@@ -49,7 +49,7 @@ return [
         'jwt' => PHPOpenSourceSaver\JWTAuth\Providers\JWT\Namshi::class,
 
         'auth' => PHPOpenSourceSaver\JWTAuth\Providers\Auth\Illuminate::class,
-        
+
         'storage' => PHPOpenSourceSaver\JWTAuth\Providers\Storage\Illuminate::class,
     ],
 ];
