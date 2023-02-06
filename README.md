@@ -28,6 +28,13 @@ To run this repo, follow these steps:
 
 5. Your application should now be running at `http://localhost:19000`
 
+
+Running Tests
+-------------
+To run the tests, run the following command:
+
+`docker-compose run test-runner php artisan test`
+
 Prerequisites
 -------------
 

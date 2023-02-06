@@ -1,11 +1,11 @@
 version: "3.8"
 
 services:
-  php:
+  app:
     build:
       context: .
       dockerfile: ./docker/php/Dockerfile
-    container_name: php_${APP_NAME}
+    container_name: app_${APP_NAME}
     volumes:
       - ./app/:/var/www/html/
     ports:
