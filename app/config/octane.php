@@ -13,31 +13,27 @@ use Laravel\Octane\Events\WorkerStarting;
 use Laravel\Octane\Events\WorkerStopping;
 use Laravel\Octane\Listeners\EnsureUploadedFilesAreValid;
 use Laravel\Octane\Listeners\EnsureUploadedFilesCanBeMoved;
-use Laravel\Octane\Listeners\FlushTemporaryContainerInstances;
 use Laravel\Octane\Listeners\ReportException;
 use Laravel\Octane\Listeners\StopWorkerIfNecessary;
 use Laravel\Octane\Octane;
 
 return [
     'server' => env('OCTANE_SERVER', 'swoole'),
-    
+
     'https' => env('OCTANE_HTTPS', false),
-    
+
     'listeners' => [
         WorkerStarting::class => [
             EnsureUploadedFilesAreValid::class,
             EnsureUploadedFilesCanBeMoved::class,
         ],
-        
+
         RequestReceived::class => [
             ...Octane::prepareApplicationForNextOperation(),
             ...Octane::prepareApplicationForNextRequest(),
-            //
         ],
 
-        RequestHandled::class => [
-            //
-        ],
+        RequestHandled::class => [],
 
         RequestTerminated::class => [
             // FlushUploadedFiles::class,
@@ -45,24 +41,18 @@ return [
 
         TaskReceived::class => [
             ...Octane::prepareApplicationForNextOperation(),
-            //
         ],
 
-        TaskTerminated::class => [
-            //
-        ],
+        TaskTerminated::class => [],
 
         TickReceived::class => [
             ...Octane::prepareApplicationForNextOperation(),
-            //
         ],
 
-        TickTerminated::class => [
-            //
-        ],
+        TickTerminated::class => [],
 
         OperationTerminated::class => [
-            FlushTemporaryContainerInstances::class,
+            //FlushTemporaryContainerInstances::class,
             // DisconnectFromDatabases::class,
             // CollectGarbage::class,
         ],
@@ -72,22 +62,18 @@ return [
             StopWorkerIfNecessary::class,
         ],
 
-        WorkerStopping::class => [
-            //
-        ],
+        WorkerStopping::class => [],
     ],
 
     'warm' => [
         ...Octane::defaultServicesToWarm(),
     ],
 
-    'flush' => [
-        //
-    ],
+    'flush' => [],
 
     'cache' => [
-        'rows' => 1000,
-        'bytes' => 10000,
+        'rows' => env('OCTANE_CACHE_ROWS', 10000),
+        'bytes' => env('OCTANE_CACHE_BYTES', 50000),
     ],
 
     'tables' => [
@@ -98,18 +84,18 @@ return [
     ],
 
     'watch' => [
-        'app',
-        'bootstrap',
+        'src',
+        'frameworks',
         'config',
-        'database',
-        'public/**/*.php',
-        'resources/**/*.php',
-        'routes',
-        'composer.lock',
         '.env',
+        'composer.lock',
+        //'bootstrap',
+        //'storage',
+        'tests',
+        'vendor',
     ],
-    
+
     'garbage' => 2000,
-    
-    'max_execution_time' => 10,
+
+    'max_execution_time' => 5,
 ];

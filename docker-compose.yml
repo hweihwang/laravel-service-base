@@ -6,21 +6,19 @@ services:
       context: .
       dockerfile: ./docker/php/Dockerfile
     container_name: app_${APP_NAME}
+    #    restart: unless-stopped
+    #    tty: true
     volumes:
       - ./app/:/var/www/html/
     ports:
       - "${PHP_PORT}:9000"
-    networks:
-      - dev
 
   test-runner:
-    image: php:8.2.2-cli-alpine3.17
+    image: php:8.2.3-cli-alpine3.17
     container_name: test-runner_${APP_NAME}
     working_dir: /var/www/html
     volumes:
       - ./app/:/var/www/html/
-    networks:
-      - dev
 
   elasticsearch:
     image: elasticsearch:${ELASTIC_VERSION}
@@ -44,8 +42,6 @@ services:
       - ./docker/elasticsearch/data:/usr/share/elasticsearch/data
     ports:
       - "${ELASTICSEARCH_PORT}:9200"
-    networks:
-      - dev
 
   mariadb:
     image: mariadb:latest
@@ -61,10 +57,3 @@ services:
       - ./docker/mariadb/init.sql:/tmp/init.sql
     environment:
       MYSQL_ROOT_PASSWORD: root
-    networks:
-      - dev
-
-networks:
-  dev:
-    driver: bridge
-    external: true
